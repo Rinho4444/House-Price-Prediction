@@ -32,17 +32,17 @@ The AIM for this project was for us to successfully build a model by the informa
 - **Optimized Model**: The best model choosing from **AutoGluon** (LightGBM) with hyperparameter tuning using **Optuna**.
 
 ### Baseline Model Performance
-| Model | RMSE | 
-|--------|------|----------|
-| K-Nearest Neighbors | 150,600 |
-| Linear Regression | 172,200 |
-| Decision Tree | 161,400 |
-| Random Forest | 127,300 |
-| XGBoost| 121,500 |
+| Model | RMSE |   
+|--------|------|----------|  
+| K-Nearest Neighbors | 150,600 |  
+| Linear Regression | 172,200 |   
+| Decision Tree | 161,400 | 
+| Random Forest | 127,300 | 
+| XGBoost| 121,500 | 
 -> XGBoost (tuning using GridSearchCV) is the best among these models, so it will be our Baseline Model.
 
 ### Final Model Performance
-| Model | RMSE Validation | RMSE Test |
-| XGBoost | | |
-| LightGBM | | | 
+| Model | RMSE Validation | RMSE Test | 
+| XGBoost | | | 
+| LightGBM | | |  
 
