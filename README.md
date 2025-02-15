@@ -28,7 +28,7 @@ The AIM for this project was for us to successfully build a model by the informa
 To understand our dataset better and prepare it for modeling, we conducted several visual analyses:
 
 #### **Before Data Preprocessing**
-##### **Histogram Analysis**
+##### **Histogram Analysis**:
 ###### **House price distribution**:
 ![Price Distribution](images/price_distribution_before.png)
 **Feature Distribution Insights**:
