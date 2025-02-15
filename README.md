@@ -31,15 +31,13 @@ To understand our dataset better and prepare it for modeling, we conducted sever
 ##### **Histogram Analysis**
 ###### **House price distribution**:
 ![Price Distribution](images/price_distribution_before.png)
-####### **Feature Distribution Insights**:
+**Feature Distribution Insights**:
 - Most house prices fall within the 0 - 2 million USD range, with a peak around $400,000.
 - The distribution exhibits a Gaussian-like shape, suggesting that the feature follows a near-normal distribution. 
-
-
-####### **Impact on Data Processing**:
+**Impact on Data Processing**:
 - Given the approximately normal distribution, we apply StandardScaler to standardize the feature, ensuring it has zero mean and unit variance.
 - This transformation is crucial for models sensitive to feature scaling (e.g., gradient-based models like Linear Regression).
-
+  
     - If the price is heavily skewed, applying log transformation may help stabilize variance.
   - Living area distribution:
     ![Living Area Distribution](images/living_area_distribution_before.png)
