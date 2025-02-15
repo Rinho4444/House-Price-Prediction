@@ -59,11 +59,14 @@ To understand our dataset better and prepare it for modeling, we conducted sever
 ##### **Box Plot Analysis**
 - **Purpose:** Detect outliers and understand the spread of continuous variables.
 - **Example:**
-  - House price by year built:
-    ![Price vs Built Year](images/price_vs_built_year_before.png)
+  - House price by number of bathrooms:
+    ![Price vs Bathrooms](images/price_vs_bathrooms_before.png)
     - If there are extreme outliers, we may consider capping or removing them.
-  - Useful for determining whether price distributions are skewed across different categories.
 
+  - House Price by grade:
+    ![Price vs Grade](images/price_vs_grade_before.png)
+    - If there are extreme outliers, we may consider capping or removing them.
+      
 ##### **Scatter Plot Analysis**
 - **Purpose:** Examine relationships between numerical features and house prices.
 - **Example:**
