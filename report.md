@@ -39,6 +39,7 @@ The AIM for this project was for us to successfully build a model by the informa
 | Decision Tree | 161,400 | 
 | Random Forest | 127,300 | 
 | XGBoost| 121,500 | 
+
 -> XGBoost (tuning using GridSearchCV) is the best among these models, so it will be our Baseline Model.
 
 ### Final Model Performance
