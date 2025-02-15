@@ -67,11 +67,11 @@ To understand our dataset better and prepare it for modeling, we conducted sever
 ##### **Scatter Plot Analysis**
 - **Purpose:** Examine relationships between numerical features and house prices.
 - **Example:**
-  - Price vs. living area:
-    ![Price vs Living Area](images/price_vs_living_area_before.png)
+  - Price vs. bathrooms:
+    ![Price vs Bathrooms](images/price_vs_bathrooms_before.png)
     - If the relationship is nonlinear, we might try feature engineering (e.g., log transformation).
   - Price vs. number of bedrooms:
-    ![Price vs Bedrooms](images/price_vs_bedrooms_before.png)
+    ![Price vs Grade](images/price_vs_grade_before.png)
     - If a weak correlation is observed, we may reconsider using this feature.
   - Helps validate whether certain features are meaningful for prediction.
 
