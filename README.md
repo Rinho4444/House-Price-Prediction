@@ -39,10 +39,11 @@ To understand our dataset better and prepare it for modeling, we conducted sever
 ![Living area distribution](images/living_area_distribution_before.png)
 
 ###### Feature Distribution Insights
-We analyzed the distributions of three key numerical features — **price, number of bedrooms, and living area** — using histograms::
+We analyzed the distributions of three key numerical features — **price, number of bedrooms, and living area** — using histograms:
 - **Price**: Most values fall within **$0 - $2M**, peaking around **$400,000**. Although there are a lot of outliers shown in this histogram, most are **natural outliers**, still following the overall distribution of data. This means the histogram displays very few **extreme outliers**.
 - **Number of bedrooms**: The majority of properties have **1 to 6** bedrooms, with a peak at **3** bedrooms. When it comes to outliers, only a few extreme ones exist.
 - **Living area**: Most values range from **500 sqft to 5,000 sqft**, pearking around **2,000 sqft**. Similar to price, the data contains **many natural outliers** but only a **few extreme ones**.
+
 💡 **Key Observation**: The distributions exhibit a roughly **Gaussian shape**, suggesting that the features follow an **approximately normal distribution**.
 
 ###### Impact on Data Processing
