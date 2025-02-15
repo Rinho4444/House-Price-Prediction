@@ -27,49 +27,95 @@ The AIM for this project was for us to successfully build a model by the informa
 ### 📊 Exploratory Data Analysis (EDA)
 To understand our dataset better and prepare it for modeling, we conducted several visual analyses:
 
-#### **Histogram Analysis**
+#### **Before Data Preprocessing**
+##### **Histogram Analysis**
 - **Purpose:** Check the distribution of key variables to determine if transformations are needed.
 - **Example:**
   - House price distribution:
-    ![Price Distribution](images/price_distribution.png)
+    ![Price Distribution](images/price_distribution_before.png)
     - If the price is heavily skewed, applying log transformation may help stabilize variance.
   - Living area distribution:
-    ![Living Area Distribution](images/living_area_distribution.png)
+    ![Living Area Distribution](images/living_area_distribution_before.png)
     - Helps check if we need to normalize or scale features for better model performance.
 
-#### **Heatmap (Correlation Matrix)**
+##### **Heatmap (Correlation Matrix)**
 - **Purpose:** Identify relationships between variables and remove redundant features.
 - **Example:**
-  ![Heatmap Correlation](images/heatmap_correlation.png)
+  ![Heatmap Correlation](images/heatmap_correlation_before.png)
   - If two features have high correlation (e.g., living area and number of rooms), we may drop one to avoid multicollinearity.
+  - Helps in feature selection by identifying unimportant features that can be removed to reduce overfitting.
 
-#### **Bar Chart Analysis**
+##### **Bar Chart Analysis**
 - **Purpose:** Check data balance across categorical features.
 - **Example:**
   - House count by condition:
-    ![Condition Distribution](images/condition_distribution.png)
+    ![Condition Distribution](images/condition_distribution_before.png)
     - If most houses have a similar condition, this feature may not contribute much to predictions.
   - House count by built year:
-    ![Built Year Distribution](images/built_year_distribution.png)
+    ![Built Year Distribution](images/built_year_distribution_before.png)
     - If some years have very few houses, we might group them into bins to improve learning stability.
+  - Helps detect class imbalance and whether certain categories dominate the dataset, potentially requiring resampling techniques.
 
-#### **Box Plot Analysis**
+##### **Box Plot Analysis**
 - **Purpose:** Detect outliers and understand the spread of continuous variables.
 - **Example:**
   - House price by year built:
-    ![Price vs Built Year](images/price_vs_built_year.png)
+    ![Price vs Built Year](images/price_vs_built_year_before.png)
     - If there are extreme outliers, we may consider capping or removing them.
+  - Useful for determining whether price distributions are skewed across different categories.
 
-#### **Scatter Plot Analysis**
+##### **Scatter Plot Analysis**
 - **Purpose:** Examine relationships between numerical features and house prices.
 - **Example:**
   - Price vs. living area:
-    ![Price vs Living Area](images/price_vs_living_area.png)
+    ![Price vs Living Area](images/price_vs_living_area_before.png)
     - If the relationship is nonlinear, we might try feature engineering (e.g., log transformation).
   - Price vs. number of bedrooms:
-    ![Price vs Bedrooms](images/price_vs_bedrooms.png)
+    ![Price vs Bedrooms](images/price_vs_bedrooms_before.png)
     - If a weak correlation is observed, we may reconsider using this feature.
+  - Helps validate whether certain features are meaningful for prediction.
 
+#### **After Data Preprocessing**
+##### **Histogram Analysis**
+- **Purpose:** Ensure transformations (e.g., log scaling) improved data distribution.
+- **Example:**
+  - House price distribution after log transformation:
+    ![Price Distribution](images/price_distribution_after.png)
+    - If the distribution is more normal, it indicates improved model performance.
+  - Living area distribution:
+    ![Living Area Distribution](images/living_area_distribution_after.png)
+    - Helps check if normalizing/scaling made the data more suitable for machine learning models.
+
+##### **Heatmap (Correlation Matrix)**
+- **Purpose:** Validate that redundant features were successfully removed while preserving important relationships.
+- **Example:**
+  ![Heatmap Correlation](images/heatmap_correlation_after.png)
+  - Helps confirm that feature selection did not remove essential information.
+
+##### **Bar Chart Analysis**
+- **Purpose:** Ensure categorical feature distributions remain reasonable after preprocessing.
+- **Example:**
+  - House count by condition after handling missing values:
+    ![Condition Distribution](images/condition_distribution_after.png)
+  - House count by built year:
+    ![Built Year Distribution](images/built_year_distribution_after.png)
+  - Ensures that preprocessing did not cause data imbalance.
+
+##### **Box Plot Analysis**
+- **Purpose:** Validate that outliers have been properly handled.
+- **Example:**
+  - House price by year built after handling outliers:
+    ![Price vs Built Year](images/price_vs_built_year_after.png)
+    - If extreme outliers are removed, we should see a more balanced distribution.
+
+##### **Scatter Plot Analysis**
+- **Purpose:** Confirm that preprocessing improved feature relationships.
+- **Example:**
+  - Price vs. living area after transformation:
+    ![Price vs Living Area](images/price_vs_living_area_after.png)
+    - Helps verify if scaling/log transformation improved correlations.
+  - Price vs. number of bedrooms:
+    ![Price vs Bedrooms](images/price_vs_bedrooms_after.png)
 
 ## 4️⃣ Methodology
 ### 🔬 Model Selection
