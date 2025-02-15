@@ -39,11 +39,11 @@ To understand our dataset better and prepare it for modeling, we conducted sever
 ![Living area distribution](images/living_area_distribution_before.png)
 
 ###### Feature Distribution Insights
-We analyzed the distributions of three key numerical features, price, number of bedrooms, and living area, using histograms:
-- **Price**: Most values fall within **$0 - $2M**, peaking around **$400,000**. Additionally, Although there are a lot of outliers shown in this histogram, most of them are **natural outliers**, still following the natural distribution of data. Of course, there are very few **extreme outliers** in this histogram.
-- **Number of bedrooms**: Most values fall within **1 - 6**, peaking around **3**. In addition, we can see that there are quite a bit of **extreme outliers**, with one of them having more than 30 bedrooms.
-- **Living area**: Most values fall within **500 sqft to 5000 sqft**, pearking around **2000**. When it comes to the outliers, there are a lot of **natural outliers**, but very few of **extreme outliers**.
--> We can infer that the distribution resembles a Gaussian shape, indicating the feature follows an approximately normal distribution.
+We analyzed the distributions of three key numerical features — **price, number of bedrooms, and living area** — using histograms::
+- **Price**: Most values fall within **$0 - $2M**, peaking around **$400,000**. Although there are a lot of outliers shown in this histogram, most are **natural outliers**, still following the overall distribution of data. This means the histogram displays very few **extreme outliers**.
+- **Number of bedrooms**: The majority of properties have **1 to 6** bedrooms, with a peak at **3** bedrooms. When it comes to outliers, only a few extreme ones exist.
+- **Living area**: Most values range from **500 sqft to 5,000 sqft**, pearking around **2,000 sqft**. Similar to price, the data contains **many natural outliers** but only a **few extreme ones**.
+💡 **Key Observation**: The distributions exhibit a roughly **Gaussian shape**, suggesting that the features follow an **approximately normal distribution**.
 
 ###### Impact on Data Processing
 - Since the distribution is **close to normal** and has **few extreme outliers**, applying **StandardScaler** is the optimal choice for feature scaling.
