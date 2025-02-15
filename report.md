@@ -44,5 +44,5 @@ The AIM for this project was for us to successfully build a model by the informa
 ### Final Model Performance
 | Model | RMSE Validation | RMSE Test | 
 | XGBoost | | | 
-| LightGBM | | |  
+| LightGBM | | 169900 |  
 
