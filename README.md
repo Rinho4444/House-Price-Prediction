@@ -51,11 +51,15 @@ We analyzed the distributions of three key numerical features — **price, numbe
 - This ensures the data is **centered around zero with unit variance**, improving model stability and performance in algorithms sensitive to feature magnitudes (e.g., Linear Regression).
 
 ##### **Heatmap (Correlation Matrix)**
-- **Purpose:** Identify relationships between variables and remove redundant features.
-- **Example:**
-  ![Heatmap Correlation](images/heatmap_correlation_before.png)
-  - If two features have high correlation (e.g., living area and number of rooms), we may drop one to avoid multicollinearity.
-  - Helps in feature selection by identifying unimportant features that can be removed to reduce overfitting.
+![Heatmap](images/heatmap_before.png)
+
+###### Feature Distribution Insights
+- The features that have the highest correlation with price in decreasing order are **sqft_living, grade, sqft_above, sqft_living15, bathrooms, and view**. They have the most significant impact on the price.
+- The features **sqft_basement, bedrooms, lat, waterfront, and floors** also influence the price but to a lesser extent.
+- The features with little to no correlation with price, which can be removed, are **zipcode, yr_built, yr_renovated, sqft_lot, long, and sqft_lot15**.
+
+###### Impact on Data Processing
+To simplify the dataset and reduce the risk of **overfitting**, we will remove the low-impact features: **zipcode, yr_built, yr_renovated, sqft_lot, long, and sqft_lot15**. This helps improve model efficiency and generalization.
 
 ##### **Bar Chart Analysis**
 - **Purpose:** Check data balance across categorical features.
