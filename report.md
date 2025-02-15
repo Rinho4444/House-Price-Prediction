@@ -18,7 +18,7 @@ Each task was completed successfully by not just the assigned member but also by
 The AIM for this project was for us to successfully build a model by the information given, applying all the knowledge we had been taught in AI4B class. Plus, we also learned teamwork and communication skills to be able to solve any bugs, obstacles or, problems passing by during the process.
 
 ## Dataset & Data Processing
-- **Raw data**: The data set that we used was taken from Kaggle in [King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction). But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
+- **Raw data**: The data set that we used was [House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) from Kaggle. But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
 -  **Processed Data**: Cleaned and feature-engineered dataset ready for model training.
 
 ## Exploratory Data Analysis (EDA)
