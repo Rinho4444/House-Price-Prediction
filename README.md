@@ -29,20 +29,25 @@ To understand our dataset better and prepare it for modeling, we conducted sever
 
 #### **Before Data Preprocessing**
 ##### **Histogram Analysis**:
-###### **House price distribution**:
+###### **Price distribution**:
 ![Price Distribution](images/price_distribution_before.png)
-**Feature Distribution Insights**:
-- Most house prices fall within the 0 - 2 million USD range, with a peak around $400,000.
-- The distribution exhibits a Gaussian-like shape, suggesting that the feature follows a near-normal distribution.          
 
-**Impact on Data Processing**:
-- Given the approximately normal distribution, we apply StandardScaler to standardize the feature, ensuring it has zero mean and unit variance.
-- This transformation is crucial for models sensitive to feature scaling (e.g., gradient-based models like Linear Regression).
-  
-    - If the price is heavily skewed, applying log transformation may help stabilize variance.
-  - Living area distribution:
-    ![Living Area Distribution](images/living_area_distribution_before.png)
-    - Helps check if we need to normalize or scale features for better model performance.
+###### **Bedroom count distribution**:
+![Bedroom count distribution](images/bedrooms_distribution_before.png)
+
+###### **Living area distribution**:
+![Living area distribution](images/living_area_distribution_before.png)
+
+###### Feature Distribution Insights
+We analyzed the distributions of three key numerical features, price, number of bedrooms, and living area, using histograms:
+- **Price**: Most values fall within **$0 - $2M**, peaking around **$400,000**. Additionally, Although there are a lot of outliers shown in this histogram, most of them are **natural outliers**, still following the natural distribution of data. Of course, there are very few **extreme outliers** in this histogram.
+- **Number of bedrooms**: Most values fall within **1 - 6**, peaking around **3**. In addition, we can see that there are quite a bit of **extreme outliers**, with one of them having more than 30 bedrooms.
+- **Living area**: Most values fall within **500 sqft to 5000 sqft**, pearking around **2000**. When it comes to the outliers, there are a lot of **natural outliers**, but very few of **extreme outliers**.
+-> We can infer that the distribution resembles a Gaussian shape, indicating the feature follows an approximately normal distribution.
+
+###### Impact on Data Processing
+- Since the distribution is **close to normal** and has **few extreme outliers**, applying **StandardScaler** is the optimal choice for feature scaling.
+- This ensures the data is **centered around zero with unit variance**, improving model stability and performance in algorithms sensitive to feature magnitudes (e.g., Linear Regression).
 
 ##### **Heatmap (Correlation Matrix)**
 - **Purpose:** Identify relationships between variables and remove redundant features.
