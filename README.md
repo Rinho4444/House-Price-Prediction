@@ -48,7 +48,7 @@ We analyzed the distributions of three key numerical features — **price, numbe
 
 ###### Impact on Data Processing
 - Since the distribution is **close to normal** and has **few extreme outliers**, applying **StandardScaler** is the optimal choice for feature scaling.
-- This ensures the data is **centered around zero with unit variance**, improving model stability and performance in algorithms sensitive to feature magnitudes (e.g., Linear Regression).
+- Applying **StandardScaler** ensures the data is **centered around zero with unit variance**, improving model stability and performance in algorithms sensitive to feature magnitudes (e.g., Linear Regression).
 
 ##### **Heatmap (Correlation Matrix)**
 ![Heatmap](images/heatmap_before.png)
