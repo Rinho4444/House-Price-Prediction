@@ -172,7 +172,7 @@ Since there are a lot of hyperparameters we want to calculate, we will use **Opt
 | XGBoost | 188172 | 
 | **LightGBM** | **169731** | 
 
-## Conclusion
+## 7. Conclusion
 The LightGBM model, combined with Optuna, successfully optimized performance, achieving higher accuracy than traditional models. This project can be expanded by collecting more data or applying deep learning techniques.
 
 
