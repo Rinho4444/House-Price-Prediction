@@ -1,4 +1,4 @@
-# House Price Prediction Report
+# House Price Prediction - Machine Learning Project
 
 ## 1️⃣ Abstract
 This project aims to accurately predict house prices using Machine Learning. We utilize **AutoML, LightGBM, and Optuna** for model optimization. Our approach improves on baseline models, achieving a lower RMSE and better generalization.
@@ -21,8 +21,8 @@ The AIM for this project was for us to successfully build a model by the informa
 ## 3️⃣ Data Analysis
 
 ### Data:
-- **Raw data**: The data set that we used was [House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) from Kaggle. But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
--  **Processed Data**: Cleaned and feature-engineered dataset ready for model training.
+- **Data set**: The data set that we used was [House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) from Kaggle. But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
+-  **Key Feature**: 
 
 ### 📊 Exploratory Data Analysis (EDA)
 To understand our dataset better and prepare it for modeling, we conducted several visual analyses:
