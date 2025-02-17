@@ -1,9 +1,10 @@
 # House Price Prediction - Machine Learning Project
 Author: HVAInternational (Pham Dang Hung, Pham Ha Khanh Chi, Le Xuan Trong, and Le Ky Nam)
-## 1️⃣ Abstract
+
+## 1. Abstract
 This project aims to accurately predict house prices using Machine Learning. We utilize **AutoML, LightGBM, and Optuna** for model optimization. Our approach improves on baseline models, achieving a lower RMSE and better generalization.
 
-## 2️⃣ Introduction
+## 2. Introduction
 This project was initially developed as an assignment for the AI4B class, where we were tasked with building a predictive model for house prices. While fulfilling the course requirements, our team recognized the broader significance of this problem in the real estate industry. Accurate price predictions can aid buyers, sellers, and investors in making informed decisions, optimizing market strategies, and assessing property values more effectively.
 
 To ensure our model has practical applications beyond the classroom, we extend this project with advanced machine learning techniques, such as **LightGBM**, **Optuna**, and **AutoML**, to enhance prediction accuracy. This approach allows us to both meet the academic expectations of our coursework and contribute meaningfully to real-world applications of AI in real estate. 
@@ -18,12 +19,12 @@ To create the best project, the team members were encouraged to optimise their t
 Each task was completed successfully by not just the assigned member but also by the help of the whole team during the process.
 The AIM for this project was for us to successfully build a model by the information given, applying all the knowledge we had been taught in AI4B class. Plus, we also learned teamwork and communication skills to be able to solve any bugs, obstacles or, problems passing by during the process.
 
-## 3️⃣ Data Analysis
+## 3. Data Analysis 
 
-### Data:
+### 3.1. Dataset Overview:
 The data set that we used was [House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) from Kaggle. But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
 
-### 📊 Exploratory Data Analysis (EDA)
+### 3.2. Exploratory Data Analysis (EDA)
 To understand our dataset better and prepare it for modeling, we conducted several visual analyses:
 
 #### **Missing value**
@@ -99,16 +100,35 @@ Here is the example of the price by bulit decade (grouping years to analysis eas
 #### Remind:
 You can visit the ```/img/``` folder in this repository to see more visualizations that we used to explore and analyze the data.
 
-## Modelling
-### Baseline Models
+### 3.3. Data Preprocessing
+
+## 4. Modelling
+### 4.1. Baseline Models
+These are the baseline models that we used:
 - K-Nearest Neighbors
 - Linear Regression
 - Decision Tree
 - Random Forest
 - XGBoost
-### Hyperparameter tuning for Baseline models
-### Advanced Model
-### Hyperparameter tuning for Advanced model
+### 4.2. Hyperparameter tuning for Baseline models
+To optimize the performance of the baseline models, we performed **hyperparameter tuning**. The hyperparameters evaluated for each model are as follows:
+- KNN (KNeighborsRegressor):
+  - n_neighbors: [3, 5, 7]
+  - weights: ['uniform', 'distance']
+- Linear Regression (LR):
+  - fit_intercept: [True, False]
+- Decision Tree (DT):
+  - max_depth: [5, 10, None]
+  - min_samples_split: [2, 5]
+- Random Forest (RF):
+  - n_estimators: [50, 100]
+  - max_depth: [10, None]
+- XGBoost (XGB):
+  - n_estimators: [50, 100]
+  - learning_rate: [0.01, 0.1]
+
+### 4.3. Advanced Model
+### 4.4. Hyperparameter tuning for Advanced model
 
 ### 📌 Data Processing & Model Training Pipeline
 ![Model Pipeline](images/model_pipeline.png)
@@ -123,9 +143,5 @@ You can visit the ```/img/``` folder in this repository to see more visualizatio
 ## Conclusion
 The LightGBM model, combined with Optuna, successfully optimized performance, achieving higher accuracy than traditional models. This project can be expanded by collecting more data or applying deep learning techniques.
 
-## References
-- Kaggle Dataset: [Dataset Link](#)
-- LightGBM Documentation: [https://lightgbm.readthedocs.io](https://lightgbm.readthedocs.io)
-- Optuna Documentation: [https://optuna.readthedocs.io](https://optuna.readthedocs.io)
 
 
