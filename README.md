@@ -78,108 +78,54 @@ Here is the example of the price by bulit decade (grouping years to analysis eas
 ###### Impact on Data Processing
 - We will retain ```grade``` because it is strongly correlated with house prices.
 - Outlier Handling:
-  - We will consider location as a possible cause of outliers in grades 6 to 10. To do this, we will draw a box plot of price vs zipcode. If the median and range of the box plots for each zipcode are non-overlapping, it suggests that location is a significant factor causing the outliers.
-  - If this is the case, we will create a new feature called high_value_location (set to 1 if the house is in a high-value location, and 0 otherwise). This will help capture the influence of location on house prices and better handle outliers.
+  - We will consider location as a possible cause of outliers in grades 6 to 10. To do this, we will draw a box plot of ```price``` vs ```zipcode```. If the **median and range of the box plots for each zipcode are non-overlapping**, it suggests that location is a **significant factor** causing the outliers.
+  - If this is the case, we will create a new feature called ```high_value_location``` (set to 1 if the house is in a high-value location, and 0 otherwise). This will help capture the influence of location on house prices and better handle outliers.
   - If there is no clear separation in the box plots across zipcodes, we will remove zipcode and explore other potential features that might be contributing to outliers.
 
-- **Purpose:** Detect outliers and understand the spread of continuous variables.
-- **Example:**
-  - House price by number of bathrooms:
-    ![Price vs Bathrooms](images/price_vs_bathrooms_before.png)
-    - If there are extreme outliers, we may consider capping or removing them.
-
-  - House Price by grade:
-    ![Price vs Grade](images/price_vs_grade_before.png)
-    - If there are extreme outliers, we may consider capping or removing them.
       
 ##### **Scatter Plot Analysis**
-- **Purpose:** Examine relationships between numerical features and house prices.
-- **Example:**
-  - Price vs. bathrooms:
-    ![Price vs Bathrooms](images/price_vs_bathrooms_before.png)
-    - If the relationship is nonlinear, we might try feature engineering (e.g., log transformation).
-  - Price vs. number of bedrooms:
-    ![Price vs Grade](images/price_vs_grade_before.png)
-    - If a weak correlation is observed, we may reconsider using this feature.
-  - Helps validate whether certain features are meaningful for prediction.
+📌 Purpose: Examine relationships between numerical features and house prices.
+![Price vs Living Area](images/price_vs_living_area_before.png)
 
-#### **After Data Preprocessing**
-##### **Histogram Analysis**
-- **Purpose:** Ensure transformations (e.g., log scaling) improved data distribution.
-- **Example:**
-  - House price distribution after log transformation:
-    ![Price Distribution](images/price_distribution_after.png)
-    - If the distribution is more normal, it indicates improved model performance.
-  - Living area distribution:
-    ![Living Area Distribution](images/living_area_distribution_after.png)
-    - Helps check if normalizing/scaling made the data more suitable for machine learning models.
+###### Feature Distribution Insights
+- The price has an **upward trend** as the living area increases from 0 to 4000 sq ft. This suggests that larger houses generally tend to have higher prices.
+- After reaching 4000 sq ft, the price continues to increase, but at a much **slower and inconsistent rate**. This indicates that for houses with **very large living areas**, the price no longer grows linearly and may be influenced by other factors, such as location, condition, or amenities.
+- There are houses with **very large living areas** that have prices **lower than expected**. These outliers could be due to several factors, including location, condition, or amenities.
 
-##### **Heatmap (Correlation Matrix)**
-- **Purpose:** Validate that redundant features were successfully removed while preserving important relationships.
-- **Example:**
-  ![Heatmap Correlation](images/heatmap_correlation_after.png)
-  - Helps confirm that feature selection did not remove essential information.
+###### Impact on Data Processing
+- Since the price growth becomes inconsistent after 4000 sq ft, we may apply a **logarithmic transformation or binning** for large living areas. This will help us better capture the relationship between living area and price, without allowing extreme values to skew the results.
+- We will handle outliers in the **scatter plot (price vs living area)** in the same way as we did with the box plot, by investigating potential causes and considering appropriate data transformations.
 
-##### **Bar Chart Analysis**
-- **Purpose:** Ensure categorical feature distributions remain reasonable after preprocessing.
-- **Example:**
-  - House count by condition after handling missing values:
-    ![Condition Distribution](images/condition_distribution_after.png)
-  - House count by built year:
-    ![Built Year Distribution](images/built_year_distribution_after.png)
-  - Ensures that preprocessing did not cause data imbalance.
+#### Remind:
+You can visit the ```/img/``` folder in this repository to see more visualizations that we used to explore and analyze the data.
 
-##### **Box Plot Analysis**
-- **Purpose:** Validate that outliers have been properly handled.
-- **Example:**
-  - House price by year built after handling outliers:
-    ![Price vs Built Year](images/price_vs_built_year_after.png)
-    - If extreme outliers are removed, we should see a more balanced distribution.
-
-##### **Scatter Plot Analysis**
-- **Purpose:** Confirm that preprocessing improved feature relationships.
-- **Example:**
-  - Price vs. living area after transformation:
-    ![Price vs Living Area](images/price_vs_living_area_after.png)
-    - Helps verify if scaling/log transformation improved correlations.
-  - Price vs. number of bedrooms:
-    ![Price vs Bedrooms](images/price_vs_bedrooms_after.png)
-
-## 4️⃣ Methodology
-### 🔬 Model Selection
-- **Baseline Model**: The best model choosing between K-Nearest Neighbors, Linear Regression, Decision Tree, Random Forest, and XGBoost with hyperparameter tuning using GridSearchCV.
-- **Optimized Model**: The best model choosing from **AutoGluon** (LightGBM) with hyperparameter tuning using **Optuna**.
+## Modelling
+### Baseline Models
+- K-Nearest Neighbors
+- Linear Regression
+- Decision Tree
+- Random Forest
+- XGBoost
+### Hyperparameter tuning for Baseline models
+### Advanced Model
+### Hyperparameter tuning for Advanced model
 
 ### 📌 Data Processing & Model Training Pipeline
 ![Model Pipeline](images/model_pipeline.png)
 
-## 5️⃣ Results
-### 📈 Model Performance
+## Model Results
 | Model | RMSE | R² |
 |---------|------|----|
 | Linear Regression | 45000 | 0.75 |
 | Random Forest | 32000 | 0.85 |
 | **LightGBM (Optuna)** | **28000** | **0.90** |
 
-![Model Performance](images/model_performance.png)
-
-## 6️⃣ Discussion
-### 🤔 Challenges Faced
-- Presence of outliers affecting results.
-- Some features had skewed distributions, impacting data normalization.
-
-### 🚀 Improvements
-- Experimenting with models like XGBoost, CatBoost.
-- Collecting additional data to improve generalization.
-
-## 7️⃣ Conclusion
+## Conclusion
 The LightGBM model, combined with Optuna, successfully optimized performance, achieving higher accuracy than traditional models. This project can be expanded by collecting more data or applying deep learning techniques.
 
-## 8️⃣ References
+## References
 - Kaggle Dataset: [Dataset Link](#)
 - LightGBM Documentation: [https://lightgbm.readthedocs.io](https://lightgbm.readthedocs.io)
 - Optuna Documentation: [https://optuna.readthedocs.io](https://optuna.readthedocs.io)
 
-## 9️⃣ Appendix
-To run the code, please refer to the notebook at [notebooks/model_training.ipynb](notebooks/model_training.ipynb).
 
