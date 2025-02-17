@@ -162,11 +162,15 @@ Since there are a lot of hyperparameters we want to calculate, we will use **Opt
 ![Model Pipeline](images/model_pipeline.png)
 
 ## 6. Model Results
+
 | Model | RMSE | 
 |---------|------|
-| Linear Regression | 45000 | 
-| Random Forest | 32000 | 
-| **LightGBM (Optuna)** | **28000** | 
+| K-Nearest Neighbors | 188239 | 
+| Linear Regression | 64453485530 | 
+| Decision Tree | 195260 | 
+| Random Forest | 178764 | 
+| XGBoost | 188172 | 
+| **LightGBM** | **169731** | 
 
 ## Conclusion
 The LightGBM model, combined with Optuna, successfully optimized performance, achieving higher accuracy than traditional models. This project can be expanded by collecting more data or applying deep learning techniques.
