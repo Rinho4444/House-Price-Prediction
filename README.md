@@ -11,7 +11,7 @@ To ensure our model has practical applications beyond the classroom, we extend t
 
 To create the best project, the team members were encouraged to optimise their teamwork and communication to help each other. The tasks were divided as follow:
 - Exploring/understanding the data: Le Xuan Trong
-- Data cleaning and : Pham Ha Khanh Chi
+- Data engineering: Pham Ha Khanh Chi
 - Building the models: Le Ky Nam
 - Optimising the models: Pham Dang Hung
 - Writing the report: Pham Ha Khanh Chi
