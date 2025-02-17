@@ -98,7 +98,7 @@ Here is the example of the price by bulit decade (grouping years to analysis eas
 - We will handle outliers in the **scatter plot (price vs living area)** in the same way as we did with the box plot, by investigating potential causes and considering appropriate data transformations.
 
 #### Remind:
-You can visit the ```/img/``` folder in this repository to see more visualizations that we used to explore and analyze the data.
+You can visit the ```/images/``` folder in this repository to see more visualizations that we used to explore and analyze the data.
 
 ### 3.3. Data Preprocessing
 
