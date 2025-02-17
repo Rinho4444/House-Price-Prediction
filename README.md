@@ -127,18 +127,46 @@ To optimize the performance of the baseline models, we performed **hyperparamete
   - n_estimators: [50, 100]
   - learning_rate: [0.01, 0.1]
 
+To perform the tuning, we used GridSearchCV to explore the best combination of hyperparameters for each model, thereby improving their performance.
 ### 4.3. Advanced Model
+Since our data is tabular, we used **AutoGluon** help us find the best model.
+![AutoGluon leaderboard](images/autogluon_leaderboard.png)
+According to AutoGluon Leaderboard, from the models that are easy to code and easy to use, LightGBM has the best score, so we will continue by optimizing **LightGBM**.
 ### 4.4. Hyperparameter tuning for Advanced model
+To optimize the performance of the advanced model, we also performed **hyperparameter tuning**. The hyperparameters evaluated for the model are as follows:
+```
+param_grid = {
+    #         "device_type": trial.suggest_categorical("device_type", ['gpu']),
+    "n_estimators": trial.suggest_categorical("n_estimators", [10000]),
+    "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.3),
+    "num_leaves": trial.suggest_int("num_leaves", 20, 3000, step=20),
+    "max_depth": trial.suggest_int("max_depth", 3, 12),
+    "min_data_in_leaf": trial.suggest_int("min_data_in_leaf", 200, 10000, step=100),
+    "max_bin": trial.suggest_int("max_bin", 200, 300),
+    "lambda_l1": trial.suggest_int("lambda_l1", 0, 100, step=5),
+    "lambda_l2": trial.suggest_int("lambda_l2", 0, 100, step=5),
+    "min_gain_to_split": trial.suggest_float("min_gain_to_split", 0, 15),
+    "bagging_fraction": trial.suggest_float(
+        "bagging_fraction", 0.2, 0.95, step=0.1
+    ),
+    "bagging_freq": trial.suggest_categorical("bagging_freq", [1]),
+    "feature_fraction": trial.suggest_float(
+        "feature_fraction", 0.2, 0.95, step=0.1
+    ),
+    "random_state": 42
+}
+```
+Since there are a lot of hyperparameters we want to calculate, we will use **Optuna** to help us efficiently search for the best set of hyperparameters.
 
-### 📌 Data Processing & Model Training Pipeline
+## 5. Data Processing & Model Training Pipeline
 ![Model Pipeline](images/model_pipeline.png)
 
-## Model Results
-| Model | RMSE | R² |
-|---------|------|----|
-| Linear Regression | 45000 | 0.75 |
-| Random Forest | 32000 | 0.85 |
-| **LightGBM (Optuna)** | **28000** | **0.90** |
+## 6. Model Results
+| Model | RMSE | 
+|---------|------|
+| Linear Regression | 45000 | 
+| Random Forest | 32000 | 
+| **LightGBM (Optuna)** | **28000** | 
 
 ## Conclusion
 The LightGBM model, combined with Optuna, successfully optimized performance, achieving higher accuracy than traditional models. This project can be expanded by collecting more data or applying deep learning techniques.
