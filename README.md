@@ -21,36 +21,29 @@ The AIM for this project was for us to successfully build a model by the informa
 ## 3️⃣ Data Analysis
 
 ### Data:
-- **Data set**: The data set that we used was [House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) from Kaggle. But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
--  **Key Feature**: 
+The data set that we used was [House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) from Kaggle. But, our teachers had already split the data set into three: X_train, y_train and X_test, in which X_train and y_train were used to train the model, and X_test would be used as the data set to produce the predicted house sales for scoring and ranking teams in AI4B class.
 
 ### 📊 Exploratory Data Analysis (EDA)
 To understand our dataset better and prepare it for modeling, we conducted several visual analyses:
 
-#### **Before Data Preprocessing**
-##### **Histogram Analysis**:
-###### **Price distribution**:
+#### **Missing value**
+We didn't find any missing values in this data.
+
+##### **Histogram Analysis**
+📌 Purpose: Check if the house price distribution is Gaussian, detect skewness and outliers.
+Here is the example of the price distribution:
 ![Price Distribution](images/price_distribution_before.png)
-
-###### **Bedroom count distribution**:
-![Bedroom count distribution](images/bedrooms_distribution_before.png)
-
-###### **Living area distribution**:
-![Living area distribution](images/living_area_distribution_before.png)
-
 ###### Feature Distribution Insights
-We analyzed the distributions of three key numerical features — **price, number of bedrooms, and living area** — using histograms:
-- **Price**: Most values fall within **$0 - $2M**, peaking around **$400,000**. Although there are a lot of outliers shown in this histogram, most are **natural outliers**, still following the overall distribution of data. This means the histogram displays very few **extreme outliers**.
-- **Number of bedrooms**: The majority of properties have **1 to 6** bedrooms, with a peak at **3** bedrooms. When it comes to outliers, only a few extreme ones exist.
-- **Living area**: Most values range from **500 sqft to 5,000 sqft**, pearking around **2,000 sqft**. Similar to price, the data contains **many natural outliers** but only a **few extreme ones**.
-
-💡 **Key Observation**: The distributions exhibit a roughly **Gaussian shape**, suggesting that the features follow an **approximately normal distribution**.
+- Most values fall within **$0 - $2M**, peaking around **$400,000**. Although there are a lot of outliers shown in this histogram, most are **natural outliers**, still following the overall distribution of data. This means the histogram displays very few **extreme outliers**.
+- The distributions exhibit a roughly **Gaussian shape**, suggesting that the features follow an **approximately normal distribution**. 
 
 ###### Impact on Data Processing
 - Since the distribution is **close to normal** and has **few extreme outliers**, applying **StandardScaler** is the optimal choice for feature scaling.
 - Applying **StandardScaler** ensures the data is **centered around zero with unit variance**, improving model stability and performance in algorithms sensitive to feature magnitudes (e.g., Linear Regression).
 
+
 ##### **Heatmap (Correlation Matrix)**
+📌 Purpose: Determine the relationship between variables, find important attributes that affect house prices.
 ![Heatmap](images/heatmap_before.png)
 
 ###### Feature Distribution Insights
@@ -59,20 +52,36 @@ We analyzed the distributions of three key numerical features — **price, numbe
 - The features with little to no correlation with price, which can be removed, are **zipcode, yr_built, yr_renovated, sqft_lot, long, and sqft_lot15**.
 
 ###### Impact on Data Processing
-To simplify the dataset and reduce the risk of **overfitting**, we will remove the low-impact features: **zipcode, yr_built, yr_renovated, sqft_lot, long, and sqft_lot15**. This helps improve model efficiency and generalization.
+To simplify the dataset and reduce the risk of **overfitting**, we will consider removing the low-impact features: **zipcode, yr_built, yr_renovated, sqft_lot, long, and sqft_lot15**. This helps improve model efficiency and generalization.
 
 ##### **Bar Chart Analysis**
-- **Purpose:** Check data balance across categorical features.
-- **Example:**
-  - House count by condition:
-    ![Condition Distribution](images/condition_distribution_before.png)
-    - If most houses have a similar condition, this feature may not contribute much to predictions.
-  - House count by built year:
-    ![Built Year Distribution](images/built_year_distribution_before.png)
-    - If some years have very few houses, we might group them into bins to improve learning stability.
-  - Helps detect class imbalance and whether certain categories dominate the dataset, potentially requiring resampling techniques.
+📌 Purpose: Check data balance across categorical features.
+Here is the example of the price by bulit decade (grouping years to analysis easier):
+![Built Year Distribution](images/built_year_distribution_before.png)
+
+###### Feature Distribution Insights
+- With the exception of two periods—1920-1940 (The Great Depression) and 2010-2020 (The COVID-19 Pandemic)—the number of houses built per decade has **generally followed an upward trend**.
+- The number of houses built is expected to **grow unless a major economic or global event disrupts the trend**.
+
+###### Impact on Data Processing
+- Since economic crises like The Great Depression and the COVID-19 Pandemic are the primary causes of these downward trends, rather than removing or imputing data from these periods, we introduce a new binary feature: ```economic_crisis_year``` (```1``` if the house was built in these periods, otherwise ```0```).
+- Given that the overall trend remains upward, we decide to retain the built_year feature instead of removing it, as initially considered after analyzing the Correlation Matrix.
 
 ##### **Box Plot Analysis**
+📌 Purpose: Detect outliers and understand the spread of continuous variables.
+![Price vs Grade](images/price_vs_grade_before.png)
+
+###### Feature Distribution Insights
+- **There is a clear upward trend in price as the grade increases**. Higher-grade houses tend to have significantly higher median prices, confirming that grade is an important factor in predicting house prices.
+- **Outliers are mostly observed in grades 6 to 10**. These could represent exceptionally expensive or underpriced houses within their respective grades, possibly due to location, renovations, or other hidden factors.
+
+###### Impact on Data Processing
+- We will retain ```grade``` because it is strongly correlated with house prices.
+- Outlier Handling:
+  - We will consider location as a possible cause of outliers in grades 6 to 10. To do this, we will draw a box plot of price vs zipcode. If the median and range of the box plots for each zipcode are non-overlapping, it suggests that location is a significant factor causing the outliers.
+  - If this is the case, we will create a new feature called high_value_location (set to 1 if the house is in a high-value location, and 0 otherwise). This will help capture the influence of location on house prices and better handle outliers.
+  - If there is no clear separation in the box plots across zipcodes, we will remove zipcode and explore other potential features that might be contributing to outliers.
+
 - **Purpose:** Detect outliers and understand the spread of continuous variables.
 - **Example:**
   - House price by number of bathrooms:
