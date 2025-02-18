@@ -1,4 +1,4 @@
-# House Price Prediction - Machine Learning Project
+# House Price Prediction - Machine Learning Project Report
 Author: HVAInternational (Pham Dang Hung, Pham Ha Khanh Chi, Le Xuan Trong, and Le Ky Nam)
 
 ## 1. Abstract
