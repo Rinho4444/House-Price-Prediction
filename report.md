@@ -133,7 +133,7 @@ Since our data is tabular, we used **AutoGluon** help us find the best model.
 ![AutoGluon leaderboard](images/autogluon_leaderboard.png)   
 According to AutoGluon Leaderboard, from the models that are easy to code and easy to use, LightGBM has the best score, so we will continue by optimizing **LightGBM**.
 ### 4.4. Hyperparameter tuning for Advanced model
-To optimize the performance of the advanced model, we also performed **hyperparameter tuning**. The hyperparameters evaluated for the model are as follows:
+To optimize the performance of the advanced model, we also performed **hyperparameter tuning**. The hyperparameters evaluated for the model are as follows![:](https://www.kaggle.com/code/bextuychiev/lgbm-optuna-hyperparameter-tuning-w-understanding)
 ```
 param_grid = {
     #         "device_type": trial.suggest_categorical("device_type", ['gpu']),
